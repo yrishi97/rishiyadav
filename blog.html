@@ -5,20 +5,25 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rishi Yadav | Blogs</title>
+    <title>Rishi Yadav | Blog</title>
+
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 
     <style>
 
-        /* =========================
+        /* =====================================================
            GLOBAL
-        ========================= */
+        ===================================================== */
 
         * {
             margin: 0;
@@ -28,15 +33,26 @@
         }
 
 
-        body {
-            background: #0D1117;
-            color: white;
+        html {
+            scroll-behavior: smooth;
         }
 
 
-        /* =========================
+        body {
+            background: #0D1117;
+            color: white;
+            line-height: 1.6;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =====================================================
            BANNER
-        ========================= */
+        ===================================================== */
 
         .banner {
 
@@ -53,10 +69,13 @@
             background-size: cover;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             text-align: center;
+
         }
 
 
@@ -64,20 +83,25 @@
 
             font-size: 3rem;
 
+            font-weight: 700;
+
         }
 
 
         .banner-content p {
 
             margin-top: 10px;
+
             color: #d0d0d0;
+
+            font-size: 1rem;
 
         }
 
 
-        /* =========================
+        /* =====================================================
            PROFILE
-        ========================= */
+        ===================================================== */
 
         .profile-section {
 
@@ -93,6 +117,7 @@
         .profile-img {
 
             width: 140px;
+
             height: 140px;
 
             border-radius: 50%;
@@ -122,9 +147,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            BUTTONS
-        ========================= */
+        ===================================================== */
 
         .buttons {
 
@@ -137,9 +162,7 @@
 
             display: inline-block;
 
-            padding: 10px 20px;
-
-            border: none;
+            padding: 10px 22px;
 
             border-radius: 30px;
 
@@ -151,12 +174,14 @@
 
             text-decoration: none;
 
+            transition: .3s;
+
         }
 
 
         .btn:hover {
 
-            text-decoration: underline;
+            transform: translateY(-2px);
 
         }
 
@@ -179,9 +204,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            SECTION
-        ========================= */
+        ===================================================== */
 
         .section {
 
@@ -194,7 +219,7 @@
         }
 
 
-        .section h2 {
+        .section > h2 {
 
             margin-bottom: 25px;
 
@@ -203,22 +228,24 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            ABOUT
-        ========================= */
+        ===================================================== */
 
         .about {
 
             color: #c8c8c8;
 
-            line-height: 1.8;
+            line-height: 1.9;
+
+            max-width: 1000px;
 
         }
 
 
-        /* =========================
+        /* =====================================================
            CATEGORIES
-        ========================= */
+        ===================================================== */
 
         .categories {
 
@@ -264,9 +291,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            FEATURED BLOG
-        ========================= */
+        ===================================================== */
 
         .featured-blog {
 
@@ -280,7 +307,9 @@
 
             grid-template-columns: 1fr 1fr;
 
-            transition: .3s;
+            transition: .35s ease;
+
+            cursor: pointer;
 
         }
 
@@ -292,7 +321,14 @@
         }
 
 
-        .featured-blog img {
+        .featured-blog.expanded {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .featured-blog > img {
 
             width: 100%;
 
@@ -343,6 +379,8 @@
 
             margin-bottom: 15px;
 
+            line-height: 1.3;
+
         }
 
 
@@ -355,39 +393,140 @@
         }
 
 
-        .read-btn {
+        .featured-read-more {
 
-            display: inline-block;
+            margin-top: 20px;
 
-            width: fit-content;
+            color: #a78bfa;
 
-            margin-top: 25px;
-
-            padding: 10px 20px;
-
-            background: #7C3AED;
-
-            color: white;
-
-            border-radius: 25px;
-
-            text-decoration: none;
+            font-size: .9rem;
 
             font-weight: 600;
 
         }
 
 
-        .read-btn:hover {
+        /* =====================================================
+           FEATURED FULL ARTICLE
+        ===================================================== */
 
-            text-decoration: underline;
+        .featured-full-content {
+
+            grid-column: 1 / -1;
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            padding: 0 40px;
+
+            border-top: 1px solid transparent;
+
+            transition:
+                max-height .6s ease,
+                opacity .4s ease,
+                padding .5s ease,
+                border-color .4s ease;
 
         }
 
 
-        /* =========================
+        .featured-blog.expanded .featured-full-content {
+
+            max-height: 2500px;
+
+            opacity: 1;
+
+            padding: 30px 40px 40px;
+
+            border-top-color: #292f38;
+
+        }
+
+
+        .featured-full-content h3 {
+
+            color: white;
+
+            font-size: 1.2rem;
+
+            margin-top: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .featured-full-content h3:first-child {
+
+            margin-top: 0;
+
+        }
+
+
+        .featured-full-content p {
+
+            color: #cfcfcf;
+
+            margin-bottom: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .featured-full-content ul {
+
+            padding-left: 25px;
+
+            color: #cfcfcf;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .featured-full-content li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        /* =====================================================
+           CODE BLOCK
+        ===================================================== */
+
+        code {
+
+            display: block;
+
+            background: #0A0E13;
+
+            color: #d6b3ff;
+
+            padding: 16px;
+
+            border-radius: 10px;
+
+            margin: 15px 0;
+
+            overflow-x: auto;
+
+            font-family: Consolas, monospace;
+
+            white-space: pre;
+
+            border: 1px solid #242a32;
+
+        }
+
+
+        /* =====================================================
            BLOG GRID
-        ========================= */
+        ===================================================== */
 
         .blog-grid {
 
@@ -403,9 +542,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            BLOG CARD
-        ========================= */
+        ===================================================== */
 
         .blog-card {
 
@@ -415,7 +554,9 @@
 
             overflow: hidden;
 
-            transition: .3s;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
 
             cursor: pointer;
 
@@ -425,6 +566,9 @@
         .blog-card:hover {
 
             transform: translateY(-6px);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .25);
 
         }
 
@@ -436,9 +580,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            BLOG IMAGE
-        ========================= */
+        ===================================================== */
 
         .blog-card img {
 
@@ -453,9 +597,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            BLOG SUMMARY
-        ========================= */
+        ===================================================== */
 
         .blog-content {
 
@@ -474,6 +618,8 @@
 
             text-transform: uppercase;
 
+            letter-spacing: .5px;
+
         }
 
 
@@ -482,6 +628,8 @@
             margin: 10px 0;
 
             font-size: 1.2rem;
+
+            line-height: 1.4;
 
         }
 
@@ -512,7 +660,7 @@
 
             margin-top: 15px;
 
-            color: #9f7aea;
+            color: #a78bfa;
 
             font-size: .85rem;
 
@@ -521,28 +669,40 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            FULL BLOG CONTENT
-        ========================= */
+        ===================================================== */
 
         .blog-full-content {
 
-            display: none;
+            max-height: 0;
 
-            padding: 0 20px 25px;
+            overflow: hidden;
 
-            color: #cfcfcf;
+            opacity: 0;
 
-            line-height: 1.8;
+            padding: 0 20px;
 
-            border-top: 1px solid #292f38;
+            border-top: 1px solid transparent;
+
+            transition:
+                max-height .6s ease,
+                opacity .4s ease,
+                padding .5s ease,
+                border-color .4s ease;
 
         }
 
 
         .blog-card.expanded .blog-full-content {
 
-            display: block;
+            max-height: 2500px;
+
+            opacity: 1;
+
+            padding: 25px 20px 30px;
+
+            border-top-color: #292f38;
 
         }
 
@@ -560,9 +720,20 @@
         }
 
 
+        .blog-full-content h4:first-child {
+
+            margin-top: 0;
+
+        }
+
+
         .blog-full-content p {
 
+            color: #cfcfcf;
+
             margin-bottom: 12px;
+
+            line-height: 1.8;
 
         }
 
@@ -570,6 +741,8 @@
         .blog-full-content ul {
 
             padding-left: 22px;
+
+            color: #cfcfcf;
 
             margin-bottom: 15px;
 
@@ -583,64 +756,20 @@
         }
 
 
-        /* =========================
-           CODE BLOCK
-        ========================= */
+        /* =====================================================
+           FEATURED / BLOG CODE
+        ===================================================== */
 
         .blog-full-content code {
 
-            display: block;
-
-            background: #0D1117;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            color: #d6b3ff;
-
-            margin: 12px 0;
-
-            overflow-x: auto;
-
-            font-family: monospace;
-
-            white-space: pre;
+            font-size: .85rem;
 
         }
 
 
-        /* =========================
-           FEATURED ARTICLE
-        ========================= */
-
-        .featured-article {
-
-            background: #161B22;
-
-            border-radius: 20px;
-
-            padding: 30px;
-
-            color: #cfcfcf;
-
-            line-height: 1.8;
-
-        }
-
-
-        .featured-article h3 {
-
-            color: white;
-
-            margin-bottom: 12px;
-
-        }
-
-
-        /* =========================
+        /* =====================================================
            NEWSLETTER
-        ========================= */
+        ===================================================== */
 
         .newsletter {
 
@@ -677,12 +806,16 @@
 
             justify-content: center;
 
+            max-width: 650px;
+
+            margin: auto;
+
         }
 
 
         .newsletter input {
 
-            width: 60%;
+            flex: 1;
 
             padding: 13px 18px;
 
@@ -718,9 +851,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
 
@@ -730,14 +863,16 @@
 
             color: #888;
 
+            border-top: 1px solid #161B22;
+
         }
 
 
-        /* =========================
+        /* =====================================================
            MOBILE
-        ========================= */
+        ===================================================== */
 
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
 
 
             .banner {
@@ -750,6 +885,15 @@
             .banner-content h1 {
 
                 font-size: 2rem;
+
+            }
+
+
+            .banner-content p {
+
+                font-size: .85rem;
+
+                padding: 0 20px;
 
             }
 
@@ -777,9 +921,11 @@
             }
 
 
-            .featured-blog img {
+            .featured-blog > img {
 
                 min-height: 220px;
+
+                height: 220px;
 
             }
 
@@ -798,6 +944,28 @@
             }
 
 
+            .featured-full-content {
+
+                grid-column: 1;
+
+            }
+
+
+            .featured-blog.expanded
+            .featured-full-content {
+
+                padding: 25px 20px 30px;
+
+            }
+
+
+            .blog-card img {
+
+                height: 180px;
+
+            }
+
+
             .newsletter {
 
                 padding: 30px 20px;
@@ -807,17 +975,27 @@
 
             .newsletter form {
 
-                width: 100%;
+                flex-direction: column;
 
             }
 
 
             .newsletter input {
 
-                width: 65%;
+                width: 100%;
+
+                border-radius: 25px;
+
+                margin-bottom: 10px;
 
             }
 
+
+            .newsletter button {
+
+                border-radius: 25px;
+
+            }
 
         }
 
@@ -827,12 +1005,14 @@
 </head>
 
 
+
 <body>
 
 
-    <!-- =========================
+
+    <!-- =====================================================
          BANNER
-    ========================== -->
+    ====================================================== -->
 
     <section class="banner">
 
@@ -852,9 +1032,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          PROFILE
-    ========================== -->
+    ====================================================== -->
 
     <section class="profile-section">
 
@@ -864,9 +1044,11 @@
             alt="Rishi Yadav"
         >
 
+
         <h2 class="profile-name">
             Rishi Yadav
         </h2>
+
 
         <p class="profile-role">
             Developer | Technical Educator | AI Trainer
@@ -874,6 +1056,7 @@
 
 
         <div class="buttons">
+
 
             <a
                 href="https://youtube.com/@codeTheVibe"
@@ -892,15 +1075,16 @@
                 Portfolio
             </a>
 
+
         </div>
 
     </section>
 
 
 
-    <!-- =========================
-         ABOUT BLOG
-    ========================== -->
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
 
     <section class="section">
 
@@ -926,9 +1110,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          CATEGORIES
-    ========================== -->
+    ====================================================== -->
 
     <section class="section">
 
@@ -939,33 +1123,56 @@
 
         <div class="categories">
 
-            <button class="active">
+
+            <button
+                class="active"
+                onclick="filterBlogs('All', this)"
+            >
                 All
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Programming', this)"
+            >
                 Programming
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Web Development', this)"
+            >
                 Web Development
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Artificial Intelligence', this)"
+            >
                 AI
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Teaching', this)"
+            >
                 Teaching
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Career', this)"
+            >
                 Career
             </button>
 
-            <button>
+
+            <button
+                onclick="filterBlogs('Computer Science', this)"
+            >
                 Computer Science
             </button>
+
 
         </div>
 
@@ -973,9 +1180,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          FEATURED ARTICLE
-    ========================== -->
+    ====================================================== -->
 
     <section class="section">
 
@@ -984,7 +1191,11 @@
         </h2>
 
 
-        <div class="featured-blog">
+        <div
+            class="featured-blog"
+            onclick="toggleFeatured(this)"
+        >
+
 
             <img
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
@@ -993,6 +1204,7 @@
 
 
             <div class="featured-content">
+
 
                 <span class="tag">
                     Featured
@@ -1017,13 +1229,288 @@
                 </p>
 
 
-                <a
-                    href="https://www.google.com"
-                    target="_blank"
-                    class="read-btn"
-                >
-                    Read Article →
-                </a>
+                <div class="featured-read-more">
+
+                    Click to read full article ↓
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FULL FEATURED ARTICLE -->
+
+            <div class="featured-full-content">
+
+
+                <h3>
+                    Introduction
+                </h3>
+
+
+                <p>
+
+                    Artificial Intelligence has become an important
+                    part of modern education and programming.
+
+                    Students can now use AI tools to ask questions,
+                    understand difficult concepts and get help while
+                    writing programs.
+
+                </p>
+
+
+                <p>
+
+                    However, using AI effectively does not mean asking
+                    it to do everything for you.
+
+                    The real benefit comes when AI helps you understand
+                    a concept and improve your own problem-solving ability.
+
+                </p>
+
+
+
+                <h3>
+                    AI as a Learning Assistant
+                </h3>
+
+
+                <p>
+
+                    Think of AI as a personal study assistant.
+
+                    You can ask it to explain a difficult topic,
+                    provide examples or help you understand an error.
+
+                </p>
+
+
+                <p>
+
+                    For example, if you are learning recursion and
+                    do not understand how it works, you can ask:
+
+                </p>
+
+
+                <code>
+Explain recursion in Python using a real-life example
+for a beginner.
+                </code>
+
+
+
+                <h3>
+                    Don't Just Copy the Code
+                </h3>
+
+
+                <p>
+
+                    One of the biggest mistakes beginners make is
+                    copying code generated by AI without understanding it.
+
+                </p>
+
+
+                <p>
+
+                    Suppose AI gives you this program:
+
+                </p>
+
+
+                <code>
+def square(number):
+    return number * number
+
+print(square(5))
+                </code>
+
+
+                <p>
+                    Instead of simply copying it, ask yourself:
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        What is a function?
+                    </li>
+
+                    <li>
+                        What is the parameter?
+                    </li>
+
+                    <li>
+                        What does return do?
+                    </li>
+
+                    <li>
+                        Why is the answer 25?
+                    </li>
+
+                </ul>
+
+
+
+                <h3>
+                    Use AI to Debug Your Programs
+                </h3>
+
+
+                <p>
+
+                    Beginners often face programming errors.
+
+                    Instead of becoming frustrated, you can use AI
+                    to understand what went wrong.
+
+                </p>
+
+
+                <p>
+
+                    First, try to identify the problem yourself.
+
+                    Then ask AI to explain the error and suggest
+                    possible solutions.
+
+                </p>
+
+
+
+                <h3>
+                    Ask Better Questions
+                </h3>
+
+
+                <p>
+
+                    The quality of the answer you receive often
+                    depends on how clearly you ask your question.
+
+                </p>
+
+
+                <p>
+                    Instead of asking:
+                </p>
+
+
+                <code>
+Give me Python code.
+                </code>
+
+
+                <p>
+                    Ask something more specific:
+                </p>
+
+
+                <code>
+Write a simple Python program to check whether
+a number is even or odd. Explain every line
+for a beginner.
+                </code>
+
+
+
+                <h3>
+                    Always Verify Important Information
+                </h3>
+
+
+                <p>
+
+                    AI systems can sometimes provide incorrect
+                    or outdated information.
+
+                    Therefore, important technical information
+                    should be checked using reliable documentation,
+                    books or trusted websites.
+
+                </p>
+
+
+
+                <h3>
+                    A Better Way to Learn with AI
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        First try to solve the problem yourself.
+                    </li>
+
+                    <li>
+                        Identify where you are stuck.
+                    </li>
+
+                    <li>
+                        Ask AI for an explanation.
+                    </li>
+
+                    <li>
+                        Understand the solution.
+                    </li>
+
+                    <li>
+                        Close the AI tool.
+                    </li>
+
+                    <li>
+                        Try solving the problem again yourself.
+                    </li>
+
+                </ul>
+
+
+
+                <h3>
+                    Final Thought
+                </h3>
+
+
+                <p>
+
+                    AI can make learning programming easier,
+                    but it should not replace your thinking.
+
+                </p>
+
+
+                <p>
+
+                    The best approach is:
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Think → Try → Learn → Practice → Build
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    Use AI as a tool that helps you become a better
+                    programmer, not as a tool that programs everything
+                    for you.
+
+                </p>
+
 
             </div>
 
@@ -1033,9 +1520,9 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          LATEST ARTICLES
-    ========================== -->
+    ====================================================== -->
 
     <section class="section">
 
@@ -1048,12 +1535,15 @@
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 1
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Programming"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
@@ -1063,6 +1553,7 @@
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Programming
@@ -1075,9 +1566,11 @@
 
 
                     <p>
+
                         A simple step-by-step roadmap to start
                         learning Python and build a strong
                         programming foundation.
+
                     </p>
 
 
@@ -1090,11 +1583,10 @@
                         Click to read full article ↓
                     </div>
 
+
                 </div>
 
 
-
-                <!-- FULL CONTENT -->
 
                 <div class="blog-full-content">
 
@@ -1114,17 +1606,6 @@
                         software development and many other areas.
 
                     </p>
-
-
-                    <p>
-
-                        If you are completely new to programming,
-                        Python is a good language to start with
-                        because its syntax is relatively easy
-                        to understand.
-
-                    </p>
-
 
 
                     <h4>
@@ -1149,16 +1630,6 @@ marks = 85.5
                     </code>
 
 
-                    <p>
-
-                        Here, <b>age</b> stores a number,
-                        <b>name</b> stores text and
-                        <b>marks</b> stores a decimal value.
-
-                    </p>
-
-
-
                     <h4>
                         Step 2: Learn Conditions
                     </h4>
@@ -1168,9 +1639,8 @@ marks = 85.5
 
                         Conditions allow a program to make decisions.
 
-                        For example, if a student's marks are
-                        greater than or equal to 40, the student
-                        passes.
+                        For example, if marks are greater than or
+                        equal to 40, a student passes.
 
                     </p>
 
@@ -1183,7 +1653,6 @@ else:
                     </code>
 
 
-
                     <h4>
                         Step 3: Learn Loops
                     </h4>
@@ -1192,10 +1661,8 @@ else:
                     <p>
 
                         A loop allows us to repeat a task multiple
-                        times.
-
-                        Instead of writing the same instruction
-                        again and again, we can use a loop.
+                        times without writing the same instruction
+                        again and again.
 
                     </p>
 
@@ -1204,15 +1671,6 @@ else:
 for i in range(1, 6):
     print(i)
                     </code>
-
-
-                    <p>
-
-                        This program prints the numbers
-                        from 1 to 5.
-
-                    </p>
-
 
 
                     <h4>
@@ -1224,9 +1682,8 @@ for i in range(1, 6):
 
                         A function is a reusable block of code.
 
-                        Imagine a calculator button. Whenever
-                        you press the button, it performs a
-                        particular task.
+                        It allows us to organize our program and
+                        avoid writing the same code repeatedly.
 
                     </p>
 
@@ -1239,7 +1696,6 @@ greet("Rahul")
                     </code>
 
 
-
                     <h4>
                         Step 5: Learn Data Structures
                     </h4>
@@ -1247,8 +1703,7 @@ greet("Rahul")
 
                     <p>
 
-                        Once you understand the basics,
-                        start learning structures such as
+                        After learning the basics, start learning
                         lists, tuples, dictionaries and sets.
 
                     </p>
@@ -1261,7 +1716,6 @@ print(students[0])
                     </code>
 
 
-
                     <h4>
                         Step 6: Build Projects
                     </h4>
@@ -1269,10 +1723,9 @@ print(students[0])
 
                     <p>
 
-                        Reading programming concepts is not enough.
+                        Practice is extremely important.
 
-                        You should write programs yourself and
-                        use your knowledge to solve small problems.
+                        Start with small projects such as:
 
                     </p>
 
@@ -1296,11 +1749,10 @@ print(students[0])
                         </li>
 
                         <li>
-                            Simple quiz application
+                            Quiz application
                         </li>
 
                     </ul>
-
 
 
                     <h4>
@@ -1312,20 +1764,18 @@ print(students[0])
 
                         Do not try to learn everything in one day.
 
-                        Learn one concept, write some code,
-                        make mistakes, fix those mistakes and
-                        then move to the next concept.
+                        Learn one concept, practice it and then
+                        move to the next concept.
 
                     </p>
 
 
                     <p>
-
-                        <b>
+                        <strong>
                             Learn → Practice → Build → Repeat.
-                        </b>
-
+                        </strong>
                     </p>
+
 
                 </div>
 
@@ -1333,12 +1783,15 @@ print(students[0])
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 2
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Web Development"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
@@ -1348,6 +1801,7 @@ print(students[0])
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Web Development
@@ -1377,6 +1831,7 @@ print(students[0])
                         Click to read full article ↓
                     </div>
 
+
                 </div>
 
 
@@ -1391,20 +1846,11 @@ print(students[0])
 
                     <p>
 
-                        Frontend development is the part of
-                        web development that focuses on everything
+                        Frontend development is the part of web
+                        development that focuses on everything
                         a user sees and interacts with on a website.
 
                     </p>
-
-
-                    <p>
-
-                        Buttons, menus, images, forms, animations
-                        and text are examples of frontend elements.
-
-                    </p>
-
 
 
                     <h4>
@@ -1428,7 +1874,6 @@ print(students[0])
                     </code>
 
 
-
                     <h4>
                         Step 2: Learn CSS
                     </h4>
@@ -1436,7 +1881,7 @@ print(students[0])
 
                     <p>
 
-                        CSS controls how the webpage looks.
+                        CSS controls how a webpage looks.
 
                         It can change colours, fonts, spacing,
                         backgrounds and layouts.
@@ -1450,7 +1895,6 @@ h1 {
     text-align: center;
 }
                     </code>
-
 
 
                     <h4>
@@ -1473,7 +1917,6 @@ button.onclick = function() {
                     </code>
 
 
-
                     <h4>
                         Step 4: Learn Responsive Design
                     </h4>
@@ -1481,12 +1924,11 @@ button.onclick = function() {
 
                     <p>
 
-                        A responsive website automatically adapts
-                        to different screen sizes such as mobile
-                        phones, tablets and laptops.
+                        Responsive design allows a website to
+                        automatically adapt to different screen
+                        sizes.
 
                     </p>
-
 
 
                     <h4>
@@ -1497,13 +1939,10 @@ button.onclick = function() {
                     <p>
 
                         Git helps developers track changes in their
-                        code.
-
-                        GitHub allows developers to store and share
-                        their projects online.
+                        code, while GitHub provides an online place
+                        to store and share projects.
 
                     </p>
-
 
 
                     <h4>
@@ -1513,12 +1952,11 @@ button.onclick = function() {
 
                     <p>
 
-                        After becoming comfortable with HTML,
-                        CSS and JavaScript, you can learn a frontend
-                        library or framework such as React.
+                        Once you are comfortable with HTML,
+                        CSS and JavaScript, you can start learning
+                        a frontend framework or library such as React.
 
                     </p>
-
 
 
                     <h4>
@@ -1551,7 +1989,6 @@ button.onclick = function() {
                     </ul>
 
 
-
                     <h4>
                         Remember
                     </h4>
@@ -1560,13 +1997,13 @@ button.onclick = function() {
                     <p>
 
                         Do not rush into frameworks before
-                        understanding the basics.
+                        understanding HTML, CSS and JavaScript.
 
-                        Strong HTML, CSS and JavaScript knowledge
-                        will make advanced technologies much easier
-                        to understand.
+                        Strong fundamentals make advanced technologies
+                        much easier to learn.
 
                     </p>
+
 
                 </div>
 
@@ -1574,12 +2011,15 @@ button.onclick = function() {
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 3
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Artificial Intelligence"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
@@ -1589,6 +2029,7 @@ button.onclick = function() {
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Artificial Intelligence
@@ -1618,6 +2059,7 @@ button.onclick = function() {
                         Click to read full article ↓
                     </div>
 
+
                 </div>
 
 
@@ -1636,12 +2078,10 @@ button.onclick = function() {
                         concepts, generate examples, find errors
                         and provide suggestions.
 
-                        However, simply copying an AI-generated
-                        answer does not mean that you have learned
-                        the topic.
+                        However, copying an AI-generated answer
+                        does not mean that you have learned the topic.
 
                     </p>
-
 
 
                     <h4>
@@ -1651,18 +2091,17 @@ button.onclick = function() {
 
                     <p>
 
-                        Instead of asking AI to complete your
-                        entire assignment, ask it to explain a
-                        difficult concept in simple language.
+                        Instead of asking AI to complete your entire
+                        assignment, ask it to explain a difficult
+                        concept in simple language.
 
                     </p>
 
 
                     <code>
-Explain recursion using a real-life
-example for a beginner.
+Explain recursion in Python using
+a real-life example for a beginner.
                     </code>
-
 
 
                     <h4>
@@ -1678,19 +2117,6 @@ example for a beginner.
                     </p>
 
 
-                    <p>
-
-                        A good test is:
-
-                        <b>
-                            Can I explain this code without
-                            looking at the AI answer?
-                        </b>
-
-                    </p>
-
-
-
                     <h4>
                         Use AI for Debugging
                     </h4>
@@ -1701,11 +2127,10 @@ example for a beginner.
                         When your program produces an error,
                         first try to understand the error yourself.
 
-                        Then use AI to get another explanation
-                        or possible solution.
+                        Then use AI to get another explanation or
+                        possible solution.
 
                     </p>
-
 
 
                     <h4>
@@ -1722,7 +2147,6 @@ example for a beginner.
                         be checked using reliable sources.
 
                     </p>
-
 
 
                     <h4>
@@ -1759,7 +2183,6 @@ example for a beginner.
                     </ul>
 
 
-
                     <h4>
                         Golden Rule
                     </h4>
@@ -1772,18 +2195,22 @@ example for a beginner.
 
                     </p>
 
+
                 </div>
 
             </div>
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 4
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Teaching"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
@@ -1793,6 +2220,7 @@ example for a beginner.
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Teaching
@@ -1822,6 +2250,7 @@ example for a beginner.
                         Click to read full article ↓
                     </div>
 
+
                 </div>
 
 
@@ -1845,7 +2274,6 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Use Real-Life Examples
                     </h4>
@@ -1862,26 +2290,17 @@ example for a beginner.
 
                     <p>
 
-                        For example, you can explain an operating
-                        system using the example of a school
+                        For example, an operating system can be
+                        explained using the example of a school
                         coordinator who manages classrooms,
                         teachers and resources.
 
                     </p>
 
 
-
                     <h4>
                         Ask Questions During the Lesson
                     </h4>
-
-
-                    <p>
-
-                        Instead of speaking continuously,
-                        ask short questions throughout the lesson.
-
-                    </p>
 
 
                     <ul>
@@ -1905,7 +2324,6 @@ example for a beginner.
                     </ul>
 
 
-
                     <h4>
                         Live Coding
                     </h4>
@@ -1914,24 +2332,15 @@ example for a beginner.
                     <p>
 
                         Writing code in front of students allows
-                        them to see how programmers actually think,
+                        them to see how programmers think,
                         make mistakes and correct them.
 
                     </p>
 
 
-
                     <h4>
                         Small Challenges
                     </h4>
-
-
-                    <p>
-
-                        Give students small problems instead of
-                        only lengthy assignments.
-
-                    </p>
 
 
                     <ul>
@@ -1955,7 +2364,6 @@ example for a beginner.
                     </ul>
 
 
-
                     <h4>
                         End With Reflection
                     </h4>
@@ -1963,19 +2371,12 @@ example for a beginner.
 
                     <p>
 
-                        At the end of the class, ask students to
-                        explain one thing they learned and one thing
-                        they still find confusing.
+                        At the end of the class, ask students
+                        to explain one thing they learned and
+                        one thing they still find confusing.
 
                     </p>
 
-
-                    <p>
-
-                        This gives the teacher useful feedback
-                        for the next lesson.
-
-                    </p>
 
                 </div>
 
@@ -1983,21 +2384,25 @@ example for a beginner.
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 5
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Career"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
                     src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800"
-                    alt="Teaching Career"
+                    alt="Career"
                 >
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Career
@@ -2019,13 +2424,14 @@ example for a beginner.
 
 
                     <div class="blog-meta">
-                        8 min read • Beginner
+                        8 min read • Career
                     </div>
 
 
                     <div class="read-more">
                         Click to read full article ↓
                     </div>
+
 
                 </div>
 
@@ -2050,17 +2456,6 @@ example for a beginner.
                     </p>
 
 
-                    <p>
-
-                        Important areas include programming,
-                        data structures, databases, operating
-                        systems, networking and computer
-                        fundamentals.
-
-                    </p>
-
-
-
                     <h4>
                         Prepare Simple Explanations
                     </h4>
@@ -2077,7 +2472,7 @@ example for a beginner.
                     <p>
 
                         For example, when explaining a stack,
-                        you can compare it with a stack of plates.
+                        compare it with a stack of plates.
 
                         The last plate placed on the stack is
                         the first plate removed.
@@ -2085,18 +2480,9 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Prepare Your Demo Lesson
                     </h4>
-
-
-                    <p>
-
-                        Your demo should have a clear beginning,
-                        middle and end.
-
-                    </p>
 
 
                     <ul>
@@ -2128,7 +2514,6 @@ example for a beginner.
                     </ul>
 
 
-
                     <h4>
                         Be Ready for AI Questions
                     </h4>
@@ -2139,18 +2524,11 @@ example for a beginner.
                         Modern teaching interviews may include
                         questions about AI and its use in education.
 
-                    </p>
-
-
-                    <p>
-
                         A strong answer should show that AI can
-                        support learning, but students must still
-                        understand concepts and develop independent
-                        problem-solving skills.
+                        support learning while students still
+                        develop independent problem-solving skills.
 
                     </p>
-
 
 
                     <h4>
@@ -2168,7 +2546,6 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Most Important Advice
                     </h4>
@@ -2178,11 +2555,12 @@ example for a beginner.
 
                         Do not try to sound complicated.
 
-                        Interviewers are often more interested
-                        in whether you can communicate clearly,
+                        Interviewers are often more interested in
+                        whether you can communicate clearly,
                         think logically and teach effectively.
 
                     </p>
+
 
                 </div>
 
@@ -2190,12 +2568,15 @@ example for a beginner.
 
 
 
-            <!-- =================================
+            <!-- =================================================
                  BLOG 6
-            ================================== -->
+            ================================================== -->
 
-            <div class="blog-card"
-                onclick="toggleBlog(this)">
+            <div
+                class="blog-card"
+                data-category="Computer Science"
+                onclick="toggleBlog(this)"
+            >
 
 
                 <img
@@ -2205,6 +2586,7 @@ example for a beginner.
 
 
                 <div class="blog-content">
+
 
                     <span class="blog-category">
                         Computer Science
@@ -2233,6 +2615,7 @@ example for a beginner.
                     <div class="read-more">
                         Click to read full article ↓
                     </div>
+
 
                 </div>
 
@@ -2264,7 +2647,6 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Programming Logic
                     </h4>
@@ -2287,7 +2669,6 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Data Structures
                     </h4>
@@ -2302,15 +2683,6 @@ example for a beginner.
                         trees are common examples.
 
                     </p>
-
-
-                    <p>
-
-                        Choosing the right data structure can make
-                        a program easier to build and more efficient.
-
-                    </p>
-
 
 
                     <h4>
@@ -2328,13 +2700,11 @@ example for a beginner.
 
                     <p>
 
-                        Even if you use an AI tool to generate
-                        code, understanding the algorithm helps
-                        you determine whether the solution actually
-                        makes sense.
+                        Even when an AI tool generates code,
+                        understanding the algorithm helps you
+                        determine whether the solution makes sense.
 
                     </p>
-
 
 
                     <h4>
@@ -2357,7 +2727,6 @@ example for a beginner.
                         products and orders.
 
                     </p>
-
 
 
                     <h4>
@@ -2384,7 +2753,6 @@ example for a beginner.
                     </p>
 
 
-
                     <h4>
                         Final Thought
                     </h4>
@@ -2402,12 +2770,13 @@ example for a beginner.
 
                     <p>
 
-                        <b>
+                        <strong>
                             Learn the tools, but never stop learning
                             the concepts behind the tools.
-                        </b>
+                        </strong>
 
                     </p>
+
 
                 </div>
 
@@ -2420,13 +2789,14 @@ example for a beginner.
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          NEWSLETTER
-    ========================== -->
+    ====================================================== -->
 
     <section class="section">
 
         <div class="newsletter">
+
 
             <h2>
                 Stay Updated
@@ -2434,12 +2804,15 @@ example for a beginner.
 
 
             <p>
+
                 Get new articles and technology insights
                 directly in your inbox.
+
             </p>
 
 
             <form onsubmit="subscribe(event)">
+
 
                 <input
                     type="email"
@@ -2452,6 +2825,7 @@ example for a beginner.
                     Subscribe
                 </button>
 
+
             </form>
 
         </div>
@@ -2460,9 +2834,9 @@ example for a beginner.
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <footer>
 
@@ -2472,61 +2846,30 @@ example for a beginner.
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================== -->
+    ====================================================== -->
 
     <script>
 
 
-        /* =========================
-           EXPAND / COLLAPSE BLOG
-        ========================= */
+        /* =====================================================
+           FEATURED ARTICLE
+        ===================================================== */
 
-        function toggleBlog(card) {
+        function toggleFeatured(article) {
 
+            article.classList.toggle("expanded");
 
-            /* Close all other cards */
-
-            document
-                .querySelectorAll(".blog-card")
-                .forEach(blog => {
-
-                    if (blog !== card) {
-
-                        blog.classList.remove("expanded");
-
-
-                        const text =
-                            blog.querySelector(".read-more");
-
-
-                        if (text) {
-
-                            text.innerHTML =
-                                "Click to read full article ↓";
-
-                        }
-
-                    }
-
-                });
-
-
-
-            /* Toggle selected card */
-
-            card.classList.toggle("expanded");
-
-
-            /* Change instruction text */
 
             const readMore =
-                card.querySelector(".read-more");
+                article.querySelector(
+                    ".featured-read-more"
+                );
 
 
             if (
-                card.classList.contains("expanded")
+                article.classList.contains("expanded")
             ) {
 
                 readMore.innerHTML =
@@ -2543,51 +2886,172 @@ example for a beginner.
 
 
 
-        /* =========================
-           NEWSLETTER
-        ========================== */
+        /* =====================================================
+           BLOG EXPAND / COLLAPSE
+        ===================================================== */
 
-        function subscribe(event) {
+        function toggleBlog(card) {
 
-            event.preventDefault();
 
-            alert(
-                "Thank you for subscribing!"
-            );
+            const wasExpanded =
+                card.classList.contains("expanded");
+
+
+            /*
+             * Close every other blog
+             */
+
+            document
+                .querySelectorAll(".blog-card")
+                .forEach(blog => {
+
+                    blog.classList.remove("expanded");
+
+
+                    const text =
+                        blog.querySelector(".read-more");
+
+
+                    if (text) {
+
+                        text.innerHTML =
+                            "Click to read full article ↓";
+
+                    }
+
+                });
+
+
+            /*
+             * Open clicked blog
+             * unless it was already open
+             */
+
+            if (!wasExpanded) {
+
+                card.classList.add("expanded");
+
+
+                const readMore =
+                    card.querySelector(".read-more");
+
+
+                if (readMore) {
+
+                    readMore.innerHTML =
+                        "Click to collapse article ↑";
+
+                }
+
+            }
 
         }
 
 
 
-        /* =========================
-           CATEGORY BUTTONS
-        ========================== */
+        /* =====================================================
+           CATEGORY FILTER
+        ===================================================== */
 
-        const categoryButtons =
-            document.querySelectorAll(
-                ".categories button"
-            );
+        function filterBlogs(category, button) {
 
 
-        categoryButtons.forEach(button => {
+            /*
+             * Update active button
+             */
 
-            button.addEventListener(
-                "click",
-                () => {
+            document
+                .querySelectorAll(".categories button")
+                .forEach(btn => {
 
-                    categoryButtons.forEach(btn => {
+                    btn.classList.remove("active");
 
-                        btn.classList.remove("active");
-
-                    });
+                });
 
 
-                    button.classList.add("active");
+            button.classList.add("active");
+
+
+            /*
+             * Get all blog cards
+             */
+
+            const cards =
+                document.querySelectorAll(".blog-card");
+
+
+            cards.forEach(card => {
+
+
+                const cardCategory =
+                    card.getAttribute("data-category");
+
+
+                /*
+                 * Close expanded articles
+                 */
+
+                card.classList.remove("expanded");
+
+
+                const readMore =
+                    card.querySelector(".read-more");
+
+
+                if (readMore) {
+
+                    readMore.innerHTML =
+                        "Click to read full article ↓";
 
                 }
+
+
+                /*
+                 * Filter
+                 */
+
+                if (
+                    category === "All" ||
+                    cardCategory === category
+                ) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+
+        /* =====================================================
+           NEWSLETTER
+        ===================================================== */
+
+        function subscribe(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                event.target.querySelector(
+                    "input"
+                ).value;
+
+
+            alert(
+                "Thank you for subscribing!"
             );
 
-        });
+
+            event.target.reset();
+
+        }
 
 
     </script>
